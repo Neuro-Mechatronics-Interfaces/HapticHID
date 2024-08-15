@@ -91,3 +91,5 @@ This program connects to the haptic device, retrieves force and position data, a
 ### Keyboard Shortcuts for Both Programs ###
 * Ctrl + C: Stops the program and exits.
 
+### Testing ###  
+There is a generic HID test interface available at **[`https://reaction-task.nml.wtf/debug/hid`](https://reaction-task.nml.wtf/debug/hid)**. 
