@@ -1,5 +1,6 @@
+#define NOMINMAX  // Add this to disable min/max macros
 #include <windows.h>
-#include "ViGEmClient.h"
+#include "ViGEm/Client.h"
 #include "drdc.h"
 #include <iostream>
 #include <csignal>
@@ -110,12 +111,12 @@ int main() {
         // Map position values to the left analog stick and left trigger
         report.sThumbLX = static_cast<SHORT>(posX * 32767 / DHD_MAX_DOF);
         report.sThumbLY = static_cast<SHORT>(posY * 32767 / DHD_MAX_DOF);
-        report.bLeftTrigger = static_cast<BYTE>(std::min(255.0, std::max(0.0, posZ * 255 / DHD_MAX_DOF)));
+        report.bLeftTrigger = static_cast<BYTE>((std::min)(255.0, (std::max)(0.0, posZ * 255 / DHD_MAX_DOF)));
 
         // Map force values to the right analog stick and right trigger
         report.sThumbRX = static_cast<SHORT>(fx * 32767 / DHD_MAX_DOF);
         report.sThumbRY = static_cast<SHORT>(fy * 32767 / DHD_MAX_DOF);
-        report.bRightTrigger = static_cast<BYTE>(std::min(255.0, std::max(0.0, fz * 255 / DHD_MAX_DOF)));
+        report.bRightTrigger = static_cast<BYTE>((std::min)(255.0, (std::max)(0.0, fz * 255 / DHD_MAX_DOF)));
 
         // Send the report to the virtual controller
         result = vigem_target_x360_update(client, target, report);
