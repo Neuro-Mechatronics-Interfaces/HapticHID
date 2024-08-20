@@ -1,5 +1,5 @@
 #include <windows.h>
-#include "ViGEmClient.h"
+#include "ViGEm/Client.h"
 #include <iostream>
 #include <csignal>
 #include <chrono>
